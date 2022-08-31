@@ -9,3 +9,4 @@
 8-firstdelete - Script to delete the file betty.
 9-firstdirdeletion - Script to delete my_first_directory.
 10-back - Script to changes the working directory to the previous one.
+11-lists - Script that lists all files in the current directory and the parent of the working directory and the /boot directory
