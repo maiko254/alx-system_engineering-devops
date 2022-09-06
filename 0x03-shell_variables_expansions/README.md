@@ -19,3 +19,5 @@
 9-divide_and_rule - Script that prints the result of POWER divided by DIVIDE, followed by a new line.
 
 11-binary_to_decimal - Script that converts a number from base 2 to base 10.
+
+12-combinations - Script that prints all possible combinations of two letters, except oo.
