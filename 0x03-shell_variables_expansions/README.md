@@ -26,5 +26,5 @@
 
 13-print_float - Script that prints a number with two decimal places, followed by a new line.
 
-
+100-decimal_to_hexadecimal - Script that converts a number from base 10 to base 16.
 
