@@ -3,3 +3,5 @@
 ### Task 0. Create a SSH RSA key pair
 
 ### Task 1. For Best School loop
+
+### Task 2. While Best School loop
