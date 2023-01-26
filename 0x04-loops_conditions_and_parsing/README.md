@@ -21,3 +21,5 @@
 ### Task 9. To file, or not to file
 
 ### Task 10. FizzBuzz
+
+### Task 11. Read and cut
