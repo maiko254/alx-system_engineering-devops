@@ -7,3 +7,5 @@
 ### Task 2. While Best School loop
 
 ### Task 3. Until Best School loop
+
+### Task 4. If 9, say Hi!
