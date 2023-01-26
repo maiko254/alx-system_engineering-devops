@@ -9,3 +9,5 @@
 ### Task 3. Until Best School loop
 
 ### Task 4. If 9, say Hi!
+
+### Task 5. 4 bad luck, 8 is your chance
