@@ -13,3 +13,5 @@
 ### Task 5. 4 bad luck, 8 is your chance
 
 ### Task 6. Superstitious numbers
+
+### Task 7. Clock
