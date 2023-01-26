@@ -15,3 +15,5 @@
 ### Task 6. Superstitious numbers
 
 ### Task 7. Clock
+
+### Task 8. For ls
