@@ -19,3 +19,7 @@
 * 3-show_your_bash_pid_made_easy - Write a Bash script that displays the PID, along with the process name, of processes whose name contain the word `bash`
 * Requirements:
    * You cannot use `ps`
+
+### Task 4. To infinity and beyond
+* 4-to_infinity_and_beyond - i Bash script that displays `To infinity and beyond` indefinitely.
+   * In between each iteration of the loop, add a `sleep 2`
