@@ -23,3 +23,8 @@
 ### Task 4. To infinity and beyond
 * 4-to_infinity_and_beyond - i Bash script that displays `To infinity and beyond` indefinitely.
    * In between each iteration of the loop, add a `sleep 2`
+
+### Task 5. Don't stop me now!
+* 5-dont_stop_me_now - Write a Bash script that stops `4-to_infinity_and_beyond` process.
+* Requirements:
+   * You must use `kill`
