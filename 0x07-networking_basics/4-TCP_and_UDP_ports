@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #  script that displays only listening sockets and shows their
 #+ PID and name of program each socket belongs to
-sudo lsof -i -P -n | grep LISTEN
+netstat -l --program
