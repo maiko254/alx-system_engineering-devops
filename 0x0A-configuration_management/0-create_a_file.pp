@@ -1,4 +1,4 @@
-# creates a file school in /tmp directory using puppet
+# creates a file school in tmp directory using puppet
 File { '/tmp/school':
   ensure  => file,
   mode    => '0744',
