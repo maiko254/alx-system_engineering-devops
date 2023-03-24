@@ -1,3 +1,4 @@
+# creates a file school in /tmp directory using puppet
 File { 'school':
   path => '/tmp/school',
   mode => '0744',
