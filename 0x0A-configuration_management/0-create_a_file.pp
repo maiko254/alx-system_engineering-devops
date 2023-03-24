@@ -1,6 +1,5 @@
 # creates a file school in tmp directory using puppet
-file { 'school':
-  path    => '/tmp/school',
+file { '/tmp/school':
   ensure  => file,
   mode    => '0744',
   owner   => 'www-data',
