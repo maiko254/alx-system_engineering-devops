@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-sudo apt-get update
-sudo apt-get install -y nginx
+apt-get update
+apt-get install -y nginx
 # Allow Nginx traffic on port 80
-sudo ufw allow 'Nginx HTTP'
+ufw allow 'Nginx HTTP'
 mkdir /etc/nginx/html
 touch /etc/nginx/html/index.html
 echo "Hello World!" > /etc/nginx/html/index.html
@@ -14,4 +14,4 @@ printf %s "server {
 }
 " > /etc/nginx/sites-available/default
 
-sudo nginx -s reload
+nginx -s reload
