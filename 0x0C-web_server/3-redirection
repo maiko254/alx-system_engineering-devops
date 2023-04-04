@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# configuring nginx so that /redirect_me redirects to another page
 apt-get update
 apt-get install -y nginx
 # Allow Nginx traffic on port 80
