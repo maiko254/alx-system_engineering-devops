@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Installs HAproxy on server and configures it to send traffic to web-01 and web-02
+apt-get install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.7
+apt-get install -y haproxy=2.7.\*
+CONFIG_FILE=/etc/haproxy/haproxy.cfg
+SERVERS=("108938-web-01 34.232.71.186:80"
+         "108938-web-02 100.26.159.131:80")
+echo "ENABLED=1" >> /etc/default/haproxy
+echo -e "\nlisten airbnb" >> $CONFIG_FILE
+echo -e "\tbind *:80" >> $CONFIG_FILE
+echo -e "\tmode http" >> $CONFIG_FILE
+echo -e "\tbalance roundrobin" >> $CONFIG_FILE
+for server in "${SERVERS[@]}"
+do
+        echo -e "\tserver $server check" >> $CONFIG_FILE
+done
+service haproxy reload
