@@ -7,8 +7,8 @@ CONFIG_FILE=/etc/haproxy/haproxy.cfg
 SERVERS=("108938-web-01 34.232.71.186:80"
          "108938-web-02 100.26.159.131:80")
 echo "ENABLED=1" >> /etc/default/haproxy
-echo -e "\nlisten airbnb" >> $CONFIG_FILE
-echo -e "\tbind *:80" >> $CONFIG_FILE
+echo -e "\nlisten \tairbnb" >> $CONFIG_FILE
+echo -e "\tbind 0.0.0.0:80" >> $CONFIG_FILE
 echo -e "\tmode http" >> $CONFIG_FILE
 echo -e "\tbalance roundrobin" >> $CONFIG_FILE
 for server in "${SERVERS[@]}"
