@@ -14,10 +14,6 @@ audit_subdomain() {
   	echo "$output"
 }
 
-if [ -z "$1" ]; then
-	exit 1
-fi
-
 if [ -z "$2" ]; then
 	audit_subdomain $1 www
 	audit_subdomain $1 lb-01
