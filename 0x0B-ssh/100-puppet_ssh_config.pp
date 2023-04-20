@@ -1,3 +1,4 @@
+# using puppet to configure ssh to use the private key ~/.ssh/school and no password authentication
 file { '/etc/ssh/ssh_config':
   ensure  => file,
   owner   => 'root',
