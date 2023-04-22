@@ -12,7 +12,6 @@ printf %s "server {
      listen      [::]:80 default_server;
      root        /etc/nginx/html;
      index       index.html index.htm;
-     add_header X-Served-By $HOSTNAME;
      location / {
        index mb-bnb.html index.html index.htm;
      }
@@ -26,4 +25,5 @@ printf %s "server {
      }
 }
 " > /etc/nginx/sites-available/default
+sed -i '/server {/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
 nginx -s reload
