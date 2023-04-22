@@ -1,18 +1,37 @@
 #!/usr/bin/env bash
-# Installs HAproxy on server and configures it to send traffic to web-01 and web-02
+# Install haproxy
 apt-get install --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.7
 apt-get install -y haproxy=2.7.\*
-CONFIG_FILE=/etc/haproxy/haproxy.cfg
-SERVERS=("108938-web-01 34.232.71.186:80"
-         "108938-web-02 100.26.159.131:80")
-echo "ENABLED=1" >> /etc/default/haproxy
-echo -e "\nlisten \tairbnb" >> $CONFIG_FILE
-echo -e "\tbind 0.0.0.0:80" >> $CONFIG_FILE
-echo -e "\tmode http" >> $CONFIG_FILE
-echo -e "\tbalance roundrobin" >> $CONFIG_FILE
-for server in "${SERVERS[@]}"
-do
-        echo -e "\tserver $server check" >> $CONFIG_FILE
-done
-service haproxy reload
+
+# Configure haproxy to send traffic to web-01 and web-02 using roundrobin algorithm
+cat <<EOF > /etc/haproxy/haproxy.cfg
+global
+    log 127.0.0.1 local0 notice
+    maxconn 2000
+    user haproxy
+    group haproxy
+
+defaults
+    log global
+    mode http
+    option httplog
+    option dontlognull
+    retries 3
+    option redispatch
+    timeout connect 5000
+    timeout client 10000
+    timeout server 10000
+
+frontend http-in
+    bind *:80
+    default_backend webservers
+
+backend webservers
+    balance roundrobin
+    server web-01 100.26.253.117:80 check
+    server web-02 18.204.13.247:80 check
+EOF
+
+# Make sure that haproxy can be managed via an init script
+systemctl enable haproxy.service
