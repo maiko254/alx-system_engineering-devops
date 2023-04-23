@@ -1,11 +1,11 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 # congfiguring nginx with a custom header on servers web01 and web02
 #!/usr/bin/env bash
-sudo apt-get update
-sudo apt-get install -y nginx
+apt-get update
+apt-get install -y nginx
 
-sudo mkdir /etc/nginx/html
-sudo touch /etc/nginx/html/mb-bnb.html
+mkdir /etc/nginx/html
+touch /etc/nginx/html/mb-bnb.html
 echo "<html><head></head><body>Hello World!<body></html>" > /etc/nginx/html/mb-bnb.html
 printf %s "server {
      listen      80 default_server;
