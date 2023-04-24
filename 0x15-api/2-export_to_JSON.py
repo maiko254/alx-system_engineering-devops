@@ -3,9 +3,9 @@
 using JSONPlaceholder to get information on an employee ID's TODO list
 and exporting it in a JSON format with the filename 'USER_ID'.json
 """
+import json
 import requests
 import sys
-import json
 
 
 if __name__ == "__main__":
