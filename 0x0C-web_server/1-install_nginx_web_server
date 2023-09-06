@@ -1,18 +1,8 @@
-#!/usr/bin/env bash
+#!usr/bin/env bash
 # install and configure nginx
-apt-get update
-apt-get install -y nginx
-# Allow Nginx traffic on port 80
-ufw allow 'Nginx HTTP'
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
-printf %s "server {
-     listen      80 default_server;
-     listen      [::]:80 default_server;
-     root        /etc/nginx/html;
-     index       index.html index.htm;
-}
-" > /etc/nginx/sites-available/default
-
-nginx -s reload
+sudo apt update
+sudo apt install -y nginx
+# overwrite the default index file with custom content
+echo "<html><body><h1>Hello World!</h1></body></html>" | sudo tee /var/www/html/index.html
+# restart nginx using service command
+sudo service nginx restart
