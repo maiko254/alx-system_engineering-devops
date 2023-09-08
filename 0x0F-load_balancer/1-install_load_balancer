@@ -35,3 +35,4 @@ EOF
 
 # Make sure that haproxy can be managed via an init script
 systemctl enable haproxy.service
+service haproxy restart
