@@ -38,7 +38,7 @@ haproxy::backend { 'webservers':
 haproxy::balancermember { "web-01":
   listening_service => "webservers",
   server_names      => "web-01",
-  ipaddresses       => "100.26.253.117",
+  ipaddresses       => "34.227.101.223",
   ports             => "80",
   options           => "check",
 }
@@ -46,7 +46,7 @@ haproxy::balancermember { "web-01":
 haproxy::balancermember { "web-02":
   listening_service => "webservers",
   server_names      => "web-02",
-  ipaddresses       => "18.204.13.247",
+  ipaddresses       => "54.162.236.122",
   ports             => "80",
   options           => "check",
 }
