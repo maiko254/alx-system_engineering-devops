@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# install and configure nginx
-sudo apt update
-sudo apt install -y nginx
-# overwrite the default index file with custom content
-echo "<html><body><h1>Hello World!</h1></body></html>" | sudo tee /var/www/html/index.html
-# restart nginx using service command
-sudo service nginx restart
