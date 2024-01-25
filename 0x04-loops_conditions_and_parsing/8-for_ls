@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Lists the contents of the current directory
 
 for i in $(ls):
