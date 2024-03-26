@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# script to setup custom 404 error page
+echo "Ceci n'est pas une page" > /var/www/html/error404.html
+rewrite_directive="rewrite ^/redirect_me https://www.youtube.com permanent;"
+error_page_directive="error_page 404 /error404.html;"
+
+nginx_config="/etc/nginx/sites-available/default";
+
+if [ -f "$nginx_config" ]; then
+    sed -i '/server_name _;/a \\t'"$rewrite_directive" "$nginx_config";
+    sed -i '/server_name _;/a \\t'"$error_page_directive" "$nginx_config";
+    echo "Directives added successfully.";
+else
+    echo "Nginx configuration file not found.";
+fi
+service nginx restart
