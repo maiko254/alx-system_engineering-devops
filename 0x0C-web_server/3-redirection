@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Script to add a 301 permanent redirection to nginx server configuration
+rewrite_directive="rewrite ^/redirect_me https://www.youtube.com permanent;"
+
+nginx_config="/etc/nginx/sites-available/default";
+
+if [ -f "$nginx_config" ]; then
+    sed -i '/server_name _;/a \\t'"$rewrite_directive" "$nginx_config";
+    echo "Redirect added successfully.";
+else
+    echo "Nginx configuration file not found.";
+fi
+service nginx restart
