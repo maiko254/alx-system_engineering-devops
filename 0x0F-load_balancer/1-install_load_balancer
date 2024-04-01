@@ -33,5 +33,5 @@ backend http_back
     server 108938-web-02 100.25.180.60:80 check
 EOF
 
-systemctl restart haproxy
-systemctl enable haproxy
+systemctl enable haproxy.service
+service haproxy restart
