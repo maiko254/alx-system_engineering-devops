@@ -1,9 +1,16 @@
+# Puppet manifest that installs and configures nginx to serve a custom header with the hostname
+exec {  'apt-update':
+  command => '/usr/bin/apt-get update',
+  path    => ['/usr/bin', '/usr/sbin'],
+}
+
 package {  'nginx':
-  ensure => installed,
+  ensure  => installed,
+  require => Exec['apt-update']
 }
 
 file {  '/etc/nginx/sites-available/default':
-  ensure  => file
+  ensure  => file,
   content => "
 server {
     listen 80 default_server;
@@ -19,7 +26,7 @@ server {
         try_files $uri $uri/ =404;
     }
 }
-"
+",
   notify  => Service['nginx'],
 }
 
