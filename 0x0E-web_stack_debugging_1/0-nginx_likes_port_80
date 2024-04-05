@@ -2,4 +2,4 @@
 # script to install nginx
 apt-get update
 apt install nginx -y
-service nginx start
+service nginx restart
