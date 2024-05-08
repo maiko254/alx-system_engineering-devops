@@ -7,8 +7,9 @@ def top_ten(subreddit):
     """
       Prints the first 10 hot posts titles after querying the reddit api
     """
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=9"
-    res = requests.get(url)
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    headers = {'User-Agent': 'My Reddit bot 1.0'}
+    res = requests.get(url, headers=headers)
     if res.status_code > 300:
         return None
     hot = res.json()
