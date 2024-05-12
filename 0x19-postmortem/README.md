@@ -31,7 +31,7 @@
 4. **Resolution**:
    - Identified the root cause: the mispelled file name (`class-wp-locale.phpp`).
    - Created a Puppet manifest to run a `sed` command, replacing the incorrect name with the correct one (`class-wp-locale.php`).
-   - Deployed the fix across to the server.
+   - Deployed the fix to the server.
 
 ### **Root Cause and Resolution**
 
