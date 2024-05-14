@@ -1,0 +1,53 @@
+upstream app_server_wsgiapp {
+        server localhost:5000 fail_timeout=0;
+}
+server {
+        add_header X-Served-By $hostname;
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+
+        root /var/www/html;
+
+        # Add index.php to the list if you are using PHP
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location /hbnb_static/ {
+                alias /data/web_static/current/;
+        }
+        error_page 404 /error404.html;
+        rewrite ^/redirect_me https://www.youtube.com permanent;
+
+        location /airbnb-onepage/ {
+                proxy_pass http://app_server_wsgiapp;
+        }
+
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+        }
+
+}
+
+
+# Virtual Host configuration for example.com
+#
+# You can move that to a different file under sites-available/ and symlink that
+# to sites-enabled/ to enable it.
+#
+#server {
+#       listen 80;
+#       listen [::]:80;
+#
+#       server_name example.com;
+#
+#       root /var/www/example.com;
+#       index index.html;
+#
+#       location / {
+#               try_files $uri $uri/ =404;
+#       }
+#}
